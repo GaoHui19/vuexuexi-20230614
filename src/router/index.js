@@ -76,9 +76,39 @@ const router = createRouter({
       component: () => import('../views/Event.vue')
     },
     {
-      path: '/LiftCycle',
-      name: 'LiftCycle',
+      path: '/liftCycle',
+      name: 'liftCycle',
       component: () => import('../views/LiftCycle.vue')
+    },
+    {
+      path: '/xuan',
+      name: 'xuan',
+      component: () => import('../views/Xuan.vue')
+    },
+    {
+      path: '/xiaomubiao',
+      name: 'xiaomubiao',
+      component: () => import('../views/Xiaomubiao.vue')
+    },
+    {
+      path: '/Erjidaohang',
+      name: 'Erjidaohang',
+      component: () => import('../views/Erjidaohang.vue')
+    },
+    {
+      path: '/ref2',
+      name: 'ref2',
+      component: () => import('../views/Ref2.vue')
+    },
+    {
+      path: '/watch',
+      name: 'watch',
+      component: () => import('../views/Watch.vue')
+    },
+    {
+      path: '/Sousuo',
+      name: 'Sousuo',
+      component: () => import('../views/Sousuo.vue')
     }
   ]
 })

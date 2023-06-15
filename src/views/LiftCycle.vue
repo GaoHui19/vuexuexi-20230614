@@ -1,54 +1,59 @@
 <template>
     <div>
-      <h2>生命周期示例</h2>
-      <p>{{ message }}</p>
-      <button @click="updateMessage">更新消息</button>
+      <h2>Vue 3 生命周期</h2>
+      <div>
+        <button @click="updateData">更新数据</button>
+        <button @click="destroyInstance">销毁实例</button>
+      </div>
     </div>
   </template>
   
   <script>
-  import { ref, onMounted, onUpdated, onBeforeUnmount } from 'vue';
+  import { onBeforeCreate, onMounted, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted, onErrorCaptured, reactive } from 'vue'
   
   export default {
     setup() {
-      const message = ref('Hello, Vue 3!');
-      
-      // 在组件挂载后调用
+      const state = reactive({
+        message: 'Hello, Vue 3!'
+      })
+  
+      onBeforeCreate(() => {
+        console.log('Vue 3 beforeCreate')
+      })
       onMounted(() => {
-        console.log('组件挂载完成！');
-      });
-  
-      // 在组件更新后调用
+        console.log('Vue 3 mounted')
+      })
+      onBeforeUpdate(() => {
+        console.log('Vue 3 beforeUpdate')
+      })
       onUpdated(() => {
-        console.log('组件更新完成！');
-      });
-  
-      // 在组件卸载前调用
+        console.log('Vue 3 updated')
+      })
       onBeforeUnmount(() => {
-        console.log('组件即将被卸载！');
-      });
+        console.log('Vue 3 beforeUnmount')
+      })
+      onUnmounted(() => {
+        console.log('Vue 3 unmounted')
+      })
+      onErrorCaptured((err, vm, info) => {
+        console.log('Vue 3 errorCaptured', err, vm, info)
+      })
   
-      function updateMessage() {
-        message.value = 'Hello, Vue 3!';
+      const updateData = () => {
+        state.message = 'Hello, Vue 3!'
+      }
+  
+      const destroyInstance = () => {
+        // 直接返回 undefined 以触发组件实例的销毁
+        return undefined
       }
   
       return {
-        message,
-        updateMessage,
-      };
-    },
-  };
-  </script>
-  
-  <style>
-  button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007aff;
-    color: #fff;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
+        state,
+        updateData,
+        destroyInstance
+      }
+    }
   }
-  </style>
+  </script>
   

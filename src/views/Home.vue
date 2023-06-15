@@ -8,7 +8,13 @@
       <router-link to="/class"> class </router-link>
       <router-link to="/v-for"> v-for </router-link>
       <router-link to="/event"> event </router-link>
-      <router-link to="/LiftCycle"> LiftCycle </router-link>
+      <router-link to="/liftCycle">LiftCycle</router-link>
+      <router-link to="/xuan"> xuan</router-link>
+      <router-link to="/xiaomubiao"> xiaomubiao </router-link>
+      <router-link to="/Erjidaohang"> Erjidaohang </router-link>
+      <router-link to="/Ref2"> Ref2 </router-link>
+      <router-link to="/watch"> Watch </router-link>
+      <router-link to="/Sousuo"> Sousuo </router-link>
     </div>
     <router-view></router-view>
   </div>
