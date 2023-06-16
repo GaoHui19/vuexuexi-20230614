@@ -1,6 +1,8 @@
 <template>
+   <div>
     <h2>from</h2>
     <input type="text" name="" :value="message" @input="inputHandler" id="">
+   </div>
 </template>
 <script setup>
     import {ref} from  'vue'

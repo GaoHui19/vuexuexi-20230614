@@ -102,7 +102,7 @@
 在样式部分，我们使用了 flex 布局来让删除目标按钮靠右对齐。我们还使用了 background-color 属性来改变目标的背景色，以及使用了 border-radius 属性来改变目标的圆角。 -->
 
 
-<!-- vue3 -->
+<!-- vue2 -->
 <!-- <template> -->
   <!-- <div class="target-container"> -->
     <!-- <h2>小目标列表</h2> -->

@@ -109,6 +109,26 @@ const router = createRouter({
       path: '/Sousuo',
       name: 'Sousuo',
       component: () => import('../views/Sousuo.vue')
+    },
+    {
+      path: '/Options',
+      name: 'Options',
+      component: () => import('../views/Options.vue')
+    },
+    {
+      path: '/color',
+      name: 'color',
+      component: () => import('../views/color.vue')
+    },
+    {
+      path: '/starRating',
+      name: 'starRating',
+      component: () => import('../views/starRating.vue')
+    },
+    {
+      path: '/Parent',
+      name: 'Parent',
+      component: () => import('../views/Parent.vue')
     }
   ]
 })

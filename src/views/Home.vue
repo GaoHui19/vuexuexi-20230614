@@ -15,15 +15,22 @@
       <router-link to="/Ref2"> Ref2 </router-link>
       <router-link to="/watch"> Watch </router-link>
       <router-link to="/Sousuo"> Sousuo </router-link>
+      <router-link to="/Options"> Options </router-link>
+      <router-link to="/color"> color </router-link>
+      <router-link to="/starRating"> starRating </router-link>
+      <router-link to="/Parent"> Parent.vue </router-link>
     </div>
     <router-view></router-view>
+
+    <child /> 
   </div>
+
+  
 </template>
 
-<script>
-// export default {
-//   name: 'Home',
-// };
+<script setup>
+import child from "../components/child.js"
+
 </script>
 
 <style>
