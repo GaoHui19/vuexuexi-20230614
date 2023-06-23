@@ -19,6 +19,8 @@
       <router-link to="/color"> color </router-link>
       <router-link to="/starRating"> starRating </router-link>
       <router-link to="/Parent"> Parent.vue </router-link>
+      <router-link to="/todoList"> todoList.vue </router-link>
+      <router-link to="/biaoge"> biaoge.vue </router-link>
     </div>
     <router-view></router-view>
 

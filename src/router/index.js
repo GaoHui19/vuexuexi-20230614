@@ -129,6 +129,16 @@ const router = createRouter({
       path: '/Parent',
       name: 'Parent',
       component: () => import('../views/Parent.vue')
+    },
+    {
+      path: '/todoList',
+      name: 'todoList',
+      component: () => import('../views/todoList.vue')
+    },
+    {
+      path: '/biaoge',
+      name: 'biaoge',
+      component: () => import('../views/biaoge.vue')
     }
   ]
 })

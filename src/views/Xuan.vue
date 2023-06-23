@@ -1,78 +1,62 @@
 <template>
-  <div class="tab-container">
-    <div class="tab-bar">
-      <div
-        v-for="(item, index) in items"
-        :key="index"
-        class="tab-item"
-        :class="{ active: index === currentIndex }"
-        @click="changeTab(index)"
-      >
-        {{ item.title }}
-      </div>
-    </div>
-    <div class="tab-content">
-      <div v-show="currentIndex === 0">这是首页</div>
-      <div v-show="currentIndex === 1">这是分类</div>
-      <div v-show="currentIndex === 2">这是我的</div>
-    </div>
+  <div class="tab-bar">
+    <ul class="tab-list">
+      <li v-for="(tab, index) in tabs" :key="index" @click="activeTab = index" :class="{ active: activeTab === index }">
+        {{ tab.title }}
+      </li>
+    </ul>
+    <keep-alive>
+      <component :is="activeTabComponent" :key="activeTab" v-if="activeTabComponent" />
+    </keep-alive>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+import TabHome from '../components/tabS/TabHome.vue';
+import TabCategory from '../components/tabS/TabCategory.vue';
+import TabProfile from '../components/tabS/TabProfile.vue';
 
-const items = [
-  { title: '首页' },
-  { title: '分类' },
-  { title: '我的' },
-];
+const tabs = ref([
+  { title: '首页', component: TabHome },
+  { title: '分类', component: TabCategory },
+  { title: '我的', component: TabProfile }
+]);
 
-const currentIndex = ref(0);
+const activeTab = ref(0);
 
-function changeTab(index) {
-  currentIndex.value = index;
-}
+const activeTabComponent = computed(() => {
+  return tabs.value[activeTab.value]?.component;
+});
 </script>
 
-<style>
-.tab-container {
-  width: 800px;
-  height: 500px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
+<style scoped>
 .tab-bar {
   display: flex;
-  justify-content: space-between;
-  padding: 16px;
-  background-color: #f5f5f5;
-  border-top: 1px solid #ccc;
-}
-
-.tab-item {
-  flex-grow: 1;
-  text-align: center;
-  font-size: 16px;
-  color: #333;
-  cursor: pointer;
+  justify-content: center;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  margin: 0 4px;
-  padding: 8px 16px;
+  border-radius: 5px;
+  margin: 20px;
 }
 
-.tab-item.active {
-  color: #007aff;
-  border-color: #007aff;
-  background: pink;
+.tab-list {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
 }
 
-.tab-content {
-  height: 100%;
-  padding: 16px;
-  overflow-y: auto;
+.tab-list li {
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: #eee;
+  border-right: 1px solid #ccc;
+}
+
+.tab-list li:last-child {
+  border-right: none;
+}
+
+.tab-list li.active {
+  background-color: #ccc;
 }
 </style>
